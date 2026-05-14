@@ -45,7 +45,7 @@
 
 let lastText = "";
 
-async function fetchText() {
+/* async function fetchText() {
   try {
     const res = await fetch(endpoint);
 
@@ -67,6 +67,39 @@ async function fetchText() {
 
   } catch (err) {
     console.error("Error fetching text:", err);
+  }
+}  */
+
+  async function fetchText() {
+  try {
+
+    const res = await fetch(endpoint, {
+      headers: {
+        "ngrok-skip-browser-warning": "true"
+      }
+    });
+
+    const text = await res.text();
+
+    if (text !== lastText) {
+
+      const box = document.getElementById("logBox");
+
+      const line = document.createElement("div");
+
+      line.textContent = text;
+
+      box.appendChild(line);
+
+      box.scrollTop = box.scrollHeight;
+
+      lastText = text;
+    }
+
+  } catch (err) {
+
+    console.error("Error fetching text:", err);
+
   }
 }
 
