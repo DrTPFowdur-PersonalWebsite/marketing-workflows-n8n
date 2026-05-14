@@ -74,9 +74,10 @@ let lastText = "";
   try {
 
     const res = await fetch(endpoint, {
-      headers: {
-        "ngrok-skip-browser-warning": "true"
-      }
+  mode: "no-cors",
+  headers: {
+    "ngrok-skip-browser-warning": "true"
+  }
     });
 
     const text = await res.text();
