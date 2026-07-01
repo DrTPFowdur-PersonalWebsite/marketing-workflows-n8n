@@ -73,12 +73,14 @@ let lastText = "";
   async function fetchText() {
   try {
 
-    const res = await fetch(endpoint, {
-  mode: "no-cors",
-  headers: {
-    "ngrok-skip-browser-warning": "true"
-  }
-    });
+    const res = await fetch(endpoint);
+    //, {
+//  mode: "no-cors",
+//  headers: {
+ //   "ngrok-skip-browser-warning": "true"
+ // }
+   // }
+   //   );
 
     const text = await res.text();
 
