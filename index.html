@@ -40,48 +40,14 @@
 </div>
 
 <script>
- // const endpoint = "http://localhost:5678/webhook/market-logs";
-// const endpoint = "https://gorgeous-distrust-uncouth.ngrok-free.dev/webhook/market-logs";
-   const endpoint = "https://tpf.app.n8n.cloud/webhook/market-logs";
+ const endpoint = "https://tpf.app.n8n.cloud/webhook/market-logs";
 let lastText = "";
 
-/* async function fetchText() {
-  try {
-    const res = await fetch(endpoint);
-
-    // 👇 Expect plain text instead of JSON
-    const text = await res.text();
-
-    // Avoid repeating same content
-    if (text !== lastText) {
-      const box = document.getElementById("logBox");
-
-      const line = document.createElement("div");
-      line.textContent = text;
-
-      box.appendChild(line);
-
-      box.scrollTop = box.scrollHeight;
-      lastText = text;
-    }
-
-  } catch (err) {
-    console.error("Error fetching text:", err);
-  }
-}  */
-
+  
   async function fetchText() {
   try {
 
     const res = await fetch(endpoint);
-    //, {
-//  mode: "no-cors",
-//  headers: {
- //   "ngrok-skip-browser-warning": "true"
- // }
-   // }
-   //   );
-
     const text = await res.text();
 
     if (text !== lastText) {
